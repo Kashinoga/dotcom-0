@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+	<link rel="stylesheet" href="src\styles\kashinoga.css">
+	%sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover">
+
+	<nav>
+		<a href="/" class="brand">
+			<span>Kashinoga</span>
+		</a>
+
+		<!-- responsive-->
+		<input id="bmenub" type="checkbox" class="show">
+		<label for="bmenub" class="burger pseudo button">Menu</label>
+
+		<div class="menu">
+			<a href="/" class="pseudo button">Home</a>
+			<a href="/projects" class="pseudo button">Projects</a>
+			<a href="/wx" class="pseudo button">WX</a>
+		</div>
+	</nav>
+
+	<div>%sveltekit.body%</div>
+</body>
+
+</html>
