@@ -58,6 +58,7 @@
 	let featuresLength = 0;
 
 	let weatherDatum = {
+		title: '',
 		NWSheadline: '',
 		areaDesc: ''
 	};
@@ -75,12 +76,13 @@
 
 			for (let index = 0; index < featuresLength; index++) {
 				weatherDatum = {
+					title: weatherDataResponse.title,
 					NWSheadline: weatherDataResponse.features[index].properties.parameters.NWSheadline,
 					areaDesc: weatherDataResponse.features[index].properties.areaDesc
 				};
 				weatherData = [...weatherData, weatherDatum];
 			}
-			console.log(weatherData);
+			console.log(weatherDataResponse);
 		}
 	}
 </script>
@@ -88,10 +90,9 @@
 <article class="card">
 	<header>
 		<h3>WX</h3>
-
 		<article class="card">
 			<header>
-				<label for="state-select">Select a state:</label>
+				<label for="state-select">Select a State</label>
 			</header>
 			<footer>
 				<select id="state-select" bind:value={selectedState} on:change={getWeatherData}>
@@ -111,6 +112,11 @@
 		<footer>
 			{#if featuresLength > 0}
 				{#each weatherData as weatherDatum}
+					<article class="card">
+						<header>
+							{weatherDatum.title}
+						</header>
+					</article>
 					<article class="card">
 						<header>
 							{weatherDatum.areaDesc}
