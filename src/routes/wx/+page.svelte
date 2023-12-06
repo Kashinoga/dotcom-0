@@ -90,6 +90,9 @@
 <article class="card">
 	<header>
 		<h3>WX</h3>
+	</header>
+
+	<header>
 		<article class="card">
 			<header>
 				<label for="state-select">Select a State</label>
@@ -111,12 +114,12 @@
 	{:then}
 		<footer>
 			{#if featuresLength > 0}
+				<article class="card">
+					<header>
+						{weatherDatum.title}
+					</header>
+				</article>
 				{#each weatherData as weatherDatum}
-					<article class="card">
-						<header>
-							{weatherDatum.title}
-						</header>
-					</article>
 					<article class="card">
 						<header>
 							{weatherDatum.areaDesc}
