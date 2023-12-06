@@ -1,2 +1,9 @@
-<h1>Kashinoga</h1>
-<p>I'm working on it.</p>
+<article class="card">
+	<header>
+		<h1>Kashinoga</h1>
+	</header>
+
+	<footer>
+		<p>I'm working on it.</p>
+	</footer>
+</article>

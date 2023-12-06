@@ -89,7 +89,7 @@
 
 <article class="card">
 	<header>
-		<h3>WX</h3>
+		<h1>WX</h1>
 	</header>
 
 	<header>
