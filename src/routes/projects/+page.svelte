@@ -1,9 +1,15 @@
-<article class="card">
+<article class="card box-shadow-hover-none">
 	<header>
 		<h1>Projects</h1>
 	</header>
 
 	<footer>
+		<a href="/project-s">
+			<article class="card">
+				<header>Project S</header>
+				<footer>A worldbuilding project.</footer>
+			</article>
+		</a>
 		<a href="/wx">
 			<article class="card">
 				<header>WX</header>
@@ -18,13 +24,11 @@
 		color: unset;
 	}
 
-	.card {
-		box-shadow:
-			rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-			rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-	}
-
 	.card:hover {
 		box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+	}
+
+	.box-shadow-hover-none:hover {
+		box-shadow: none;
 	}
 </style>
