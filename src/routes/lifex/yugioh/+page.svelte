@@ -2,15 +2,10 @@
 	let playerOneLife = 0;
 	let playerTwoLife = 0;
 
-	let player;
-	let value;
-
 	function adjustPlayerValue(player: number, value: number) {
 		if (player === 1) {
-			console.log('in here 1');
 			playerOneLife += value;
 		} else {
-			console.log('in here 2');
 			playerTwoLife += value;
 		}
 	}
@@ -20,6 +15,29 @@
 			playerOneLife = 0;
 		} else {
 			playerTwoLife = 0;
+		}
+	}
+
+	function setDefaultPlayerValues(gameType: string) {
+		if (gameType === 'Master Duel') {
+			playerOneLife = 8000;
+			playerTwoLife = 8000;
+		} else {
+			playerOneLife = 4000;
+			playerTwoLife = 4000;
+		}
+	}
+
+	let coinResult = 'Press the Button';
+
+	function flipACoin() {
+		let number = Math.random();
+
+		if (number < 0.5) {
+			coinResult = 'Heads';
+		} else {
+			coinResult = 'Tails';
+			A;
 		}
 	}
 </script>
@@ -34,7 +52,7 @@
 					><article class="card card-last box-shadow-apply">
 						<header>Player 1</header>
 						<footer>
-							<header>Life</header>
+							<header>Life Points</header>
 							<footer>
 								<div class="flex one two-600">
 									<div>
@@ -118,10 +136,10 @@
 
 			<div class="padding-bottom-zero">
 				<span
-					><article class="card card-last box-shadow-apply">
+					><article class="card box-shadow-apply">
 						<header>Player 2</header>
 						<footer>
-							<header>Life</header>
+							<header>Life Points</header>
 							<footer>
 								<div class="flex one two-600">
 									<div>
@@ -203,12 +221,66 @@
 				>
 			</div>
 		</div>
+
+		<article class="card">
+			<header>Starting Life Points</header>
+			<footer>
+				<div class="flex one two-600">
+					<div>
+						<span
+							><button class="full" on:click={() => setDefaultPlayerValues('Master Duel')}
+								>Master Duel</button
+							></span
+						>
+					</div>
+					<div>
+						<span
+							><button class="full" on:click={() => setDefaultPlayerValues('Speed Duel')}
+								>Speed Duel</button
+							></span
+						>
+					</div>
+				</div>
+			</footer>
+		</article>
+
+		<article class="card card-last">
+			<header>Flip a Coin</header>
+			<footer>
+				<div class="flex one two-600">
+					<div>
+						<span><button class="full" on:click={() => flipACoin()}>Flip</button></span>
+					</div>
+					<div>
+						<span><button class="full">{coinResult}</button></span>
+					</div>
+				</div>
+			</footer>
+		</article>
 	</footer>
 </article>
 
 <style>
 	.box-shadow-apply {
 		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
+	}
+
+	@media screen and (max-width: 600px) {
+		.flex > * {
+			padding-bottom: 0.2em;
+		}
+
+		.card header {
+			padding: 0.4em;
+		}
+
+		.card footer {
+			padding: 0.2em;
+		}
+
+		button {
+			margin: 0;
+		}
 	}
 
 	.card:hover {
