@@ -252,7 +252,11 @@
 						<span><button class="full" on:click={() => flipACoin()}>Flip</button></span>
 					</div>
 					<div>
-						<span><button class="full">{coinResult}</button></span>
+						<span
+							><button disabled class="full" style="background-color: goldenrod;"
+								>{coinResult}</button
+							></span
+						>
 					</div>
 				</div>
 			</footer>
