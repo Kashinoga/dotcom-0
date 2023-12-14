@@ -284,6 +284,7 @@
 
 		button {
 			margin: 0;
+			touch-action: manipulation;
 		}
 	}
 
