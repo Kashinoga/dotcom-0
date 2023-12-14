@@ -15,7 +15,7 @@
 			</article>
 		</a>
 		<a href="/wx">
-			<article class="card">
+			<article class="card card-last">
 				<header>WX</header>
 				<footer>A simple weather app.</footer>
 			</article>

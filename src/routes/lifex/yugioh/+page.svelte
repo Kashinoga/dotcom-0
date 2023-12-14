@@ -29,189 +29,175 @@
 
 	<footer>
 		<div class="flex two">
-			<div>
+			<div class="padding-bottom-zero">
 				<span
-					><article class="card box-shadow-apply">
+					><article class="card card-last box-shadow-apply">
 						<header>Player 1</header>
 						<footer>
-							<article class="card">
-								<header>Life</header>
-								<footer>
-									<div class="flex one two-600">
-										<div>
-											<span
-												><button disabled class="full" style="background-color: goldenrod;"
-													>{playerOneLife}</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button
-													class="full"
-													style="background-color: red;"
-													on:click={() => resetPlayerValue(1)}>Reset</button
-												></span
-											>
-										</div>
+							<header>Life</header>
+							<footer>
+								<div class="flex one two-600">
+									<div>
+										<span
+											><button disabled class="full" style="background-color: goldenrod;"
+												>{playerOneLife}</button
+											></span
+										>
 									</div>
-								</footer>
-							</article>
-							<article class="card">
-								<header>Increments</header>
-								<footer>
-									<div class="flex one two-600">
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(1, -1000)}
-													>-1000</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(1, 1000)}
-													>+1000</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(1, -500)}
-													>-500</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(1, 500)}
-													>+500</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(1, -100)}
-													>-100</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(1, 100)}
-													>+100</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(1, -50)}>-50</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(1, 50)}>+50</button
-												></span
-											>
-										</div>
+									<div>
+										<span
+											><button
+												class="full"
+												style="background-color: red;"
+												on:click={() => resetPlayerValue(1)}>Reset</button
+											></span
+										>
 									</div>
-								</footer>
-							</article>
+								</div>
+							</footer>
+
+							<header>Increments</header>
+							<footer>
+								<div class="flex one two-600">
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(1, -1000)}
+												>-1000</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(1, 1000)}
+												>+1000</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(1, -500)}>-500</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(1, 500)}>+500</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(1, -100)}>-100</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(1, 100)}>+100</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(1, -50)}>-50</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(1, 50)}>+50</button
+											></span
+										>
+									</div>
+								</div>
+							</footer>
 						</footer>
 					</article></span
 				>
 			</div>
 
-			<div>
+			<div class="padding-bottom-zero">
 				<span
-					><article class="card box-shadow-apply">
+					><article class="card card-last box-shadow-apply">
 						<header>Player 2</header>
 						<footer>
-							<article class="card">
-								<header>Life</header>
-								<footer>
-									<div class="flex one two-600">
-										<div>
-											<span
-												><button disabled class="full" style="background-color: goldenrod;"
-													>{playerTwoLife}</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button
-													class="full"
-													style="background-color: red;"
-													on:click={() => resetPlayerValue(2)}>Reset</button
-												></span
-											>
-										</div>
+							<header>Life</header>
+							<footer>
+								<div class="flex one two-600">
+									<div>
+										<span
+											><button disabled class="full" style="background-color: goldenrod;"
+												>{playerTwoLife}</button
+											></span
+										>
 									</div>
-								</footer>
-							</article>
-							<article class="card">
-								<header>Increments</header>
-								<footer>
-									<div class="flex one two-600">
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(2, -1000)}
-													>-1000</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(2, 1000)}
-													>+1000</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(2, -500)}
-													>-500</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(2, 500)}
-													>+500</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(2, -100)}
-													>-100</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(2, 100)}
-													>+100</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(2, -50)}>-50</button
-												></span
-											>
-										</div>
-										<div>
-											<span
-												><button class="full" on:click={() => adjustPlayerValue(2, 50)}>+50</button
-												></span
-											>
-										</div>
+									<div>
+										<span
+											><button
+												class="full"
+												style="background-color: red;"
+												on:click={() => resetPlayerValue(2)}>Reset</button
+											></span
+										>
 									</div>
-								</footer>
-							</article>
+								</div>
+							</footer>
+
+							<header>Increments</header>
+							<footer>
+								<div class="flex one two-600">
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(2, -1000)}
+												>-1000</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(2, 1000)}
+												>+1000</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(2, -500)}>-500</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(2, 500)}>+500</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(2, -100)}>-100</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(2, 100)}>+100</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(2, -50)}>-50</button
+											></span
+										>
+									</div>
+									<div>
+										<span
+											><button class="full" on:click={() => adjustPlayerValue(2, 50)}>+50</button
+											></span
+										>
+									</div>
+								</div>
+							</footer>
 						</footer>
 					</article></span
 				>
@@ -231,5 +217,9 @@
 
 	.box-shadow-hover-none:hover {
 		box-shadow: none;
+	}
+
+	.padding-bottom-zero {
+		padding-bottom: 0;
 	}
 </style>
