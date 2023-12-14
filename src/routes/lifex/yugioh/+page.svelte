@@ -42,7 +42,7 @@
 	}
 </script>
 
-<article class="card box-shadow-hover-none">
+<article class="card card-last">
 	<header>LifeX for Yu-Gi-Oh!</header>
 
 	<footer>
