@@ -11,13 +11,12 @@
 </head>
 
 <body data-sveltekit-preload-data="hover">
-
 	<nav>
-		<a href="/" class="brand">
-			<span>Kashinoga</span>
-		</a>
+		<div class="menu" style="float: left;">
+			<a href="/" class="pseudo button">Kashinoga</a>
+		</div>
 
-		<!-- responsive-->
+		<!-- responsive
 		<input id="bmenub" type="checkbox" class="show">
 		<label for="bmenub" class="burger pseudo button">Menu</label>
 
@@ -25,31 +24,94 @@
 			<a href="/" class="pseudo button">Home</a>
 			<a href="/projects" class="pseudo button">Projects</a>
 			<a href="/wx" class="pseudo button">WX</a>
+		</div> -->
+
+		<div class="menu">
+			<a href="/menu" class="pseudo button">Menu</a>
 		</div>
 	</nav>
 
+	<!-- <article class="card outer-body">
+		<div class="inner-body"> -->
 	<div>%sveltekit.body%</div>
+	<!-- </div>
+	</article> -->
 </body>
 
 </html>
 
 <style>
+	nav {
+		background: black;
+		border: none;
+		border-radius: .2em;
+		box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
+		color: white;
+		margin: 1em;
+	}
+
+	nav .menu>* {
+		margin-right: 0;
+	}
+
+	nav .pseudo.button:hover {
+		background-color: goldenrod;
+		box-shadow: none;
+	}
+
+	@media (max-width: 60em) {
+		nav {
+			margin: 0.4em;
+		}
+
+		nav .show:checked~.burger {
+			background: transparent;
+			box-shadow: none;
+			color: black;
+			position: relative;
+			width: unset;
+		}
+
+		nav .show~.menu {
+			background: black;
+			bottom: unset;
+			box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
+			color: white;
+			position: relative;
+			width: unset;
+		}
+	}
+
 	body {
-		font-size: 16px;
 		margin: auto;
-		margin-top: 3em;
+		margin-top: 4em;
 		max-width: 720px;
 		padding: 1rem;
 	}
 
+	/* .outer-body {
+		margin-top: 2em;
+	}
+
+	.inner-body {
+		margin-top: 2em;
+	} */
+
 	@media screen and (max-width: 600px) {
 		body {
-			padding: 0.2em;
+			padding: 0.4em;
+			padding-top: 0;
+		}
+
+		.card header,
+		.card footer {
+			padding: 0.4em;
 		}
 	}
 
 	.card {
 		box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
+		margin-bottom: 0.4em;
 	}
 
 	.card-last {

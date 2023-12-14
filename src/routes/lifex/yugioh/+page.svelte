@@ -274,14 +274,6 @@
 			padding-bottom: 0.2em;
 		}
 
-		.card header {
-			padding: 0.4em;
-		}
-
-		.card footer {
-			padding: 0.2em;
-		}
-
 		button {
 			margin: 0;
 			touch-action: manipulation;
