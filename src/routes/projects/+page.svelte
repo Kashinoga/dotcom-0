@@ -1,9 +1,13 @@
 <article class="card box-shadow-hover-none">
-	<header>
-		<h1>Projects</h1>
-	</header>
+	<header>Projects</header>
 
 	<footer>
+		<a href="/lifex">
+			<article class="card">
+				<header>LifeX</header>
+				<footer>A life counter app.</footer>
+			</article>
+		</a>
 		<a href="/project-s">
 			<article class="card">
 				<header>Project S</header>

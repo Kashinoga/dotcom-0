@@ -88,9 +88,7 @@
 </script>
 
 <article class="card">
-	<header>
-		<h1>WX</h1>
-	</header>
+	<header>WX</header>
 
 	<header>
 		<article class="card">

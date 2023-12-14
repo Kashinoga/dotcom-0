@@ -1,7 +1,5 @@
 <article class="card">
-	<header>
-		<h1>Project S</h1>
-	</header>
+	<header>Project S</header>
 
 	<footer>
 		<p>Coming soon...</p>

@@ -1,7 +1,5 @@
 <article class="card">
-	<header>
-		<h1>Starbloom</h1>
-	</header>
+	<header>Starbloom</header>
 
 	<footer>
 		<p>Coming soon...</p>

@@ -1,7 +1,5 @@
 <article class="card">
-	<header>
-		<h1>Kashinoga</h1>
-	</header>
+	<header>Kashinoga</header>
 
 	<footer>
 		<p>I'm working on it.</p>
