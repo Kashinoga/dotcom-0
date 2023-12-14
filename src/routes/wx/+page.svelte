@@ -87,24 +87,19 @@
 	}
 </script>
 
-<article class="card">
+<article class="card card-last">
 	<header>WX</header>
 
 	<header>
-		<article class="card">
-			<header>
-				<label for="state-select">Select a State</label>
-			</header>
-			<footer>
-				<select id="state-select" bind:value={selectedState} on:change={getWeatherData}>
-					{#each statesOfAmerica as state}
-						<option value={state.abbreviation}>
-							{state.name}
-						</option>
-					{/each}
-				</select>
-			</footer>
-		</article>
+		<label for="state-select">Select a State</label>
+
+		<select id="state-select" bind:value={selectedState} on:change={getWeatherData}>
+			{#each statesOfAmerica as state}
+				<option value={state.abbreviation}>
+					{state.name}
+				</option>
+			{/each}
+		</select>
 	</header>
 
 	{#await getWeatherData()}
@@ -112,20 +107,17 @@
 	{:then}
 		<footer>
 			{#if featuresLength > 0}
-				<article class="card">
-					<header>
-						{weatherDatum.title}
-					</header>
-				</article>
+				<header class="wx-title">
+					{weatherDatum.title}
+				</header>
+
 				{#each weatherData as weatherDatum}
-					<article class="card">
-						<header>
-							{weatherDatum.areaDesc}
-						</header>
-						<footer>
-							{weatherDatum.NWSheadline}
-						</footer>
-					</article>
+					<header>
+						{weatherDatum.areaDesc}
+					</header>
+					<footer>
+						{weatherDatum.NWSheadline}
+					</footer>
 				{/each}
 			{:else if selectedState}
 				No available alerts.
@@ -137,3 +129,13 @@
 		<p>Error: {error.message}</p>
 	{/await}
 </article>
+
+<style>
+	.wx-title {
+		background-color: goldenrod;
+		border: none;
+		border-radius: .2em;
+		color: white;
+		font-weight: normal;
+	}
+</style>

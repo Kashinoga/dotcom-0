@@ -33,7 +33,7 @@
 
 	<!-- <article class="card outer-body">
 		<div class="inner-body"> -->
-	<div>%sveltekit.body%</div>
+	<div style="padding-bottom: 0.4em;">%sveltekit.body%</div>
 	<!-- </div>
 	</article> -->
 </body>
@@ -47,7 +47,7 @@
 		border-radius: .2em;
 		box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
 		color: white;
-		margin: 1em;
+		margin: 0.4em;
 	}
 
 	nav .menu>* {
@@ -86,7 +86,9 @@
 		margin: auto;
 		margin-top: 4em;
 		max-width: 720px;
-		padding: 1rem;
+		/* padding: 1rem; */
+		padding: 0.4em;
+		padding-top: 0;
 	}
 
 	/* .outer-body {
@@ -97,21 +99,19 @@
 		margin-top: 2em;
 	} */
 
-	@media screen and (max-width: 600px) {
-		body {
-			padding: 0.4em;
-			padding-top: 0;
-		}
-
-		.card header,
-		.card footer {
-			padding: 0.4em;
-		}
+	.card header,
+	.card footer {
+		padding: 0.4em;
 	}
 
 	.card {
 		box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
 		margin-bottom: 0.4em;
+	}
+
+	button {
+		box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
+
 	}
 
 	.card-last {
