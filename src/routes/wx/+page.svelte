@@ -52,7 +52,7 @@
 		{ name: 'Wyoming', abbreviation: 'WY' }
 	];
 
-	let selectedState = '';
+	let selectedState = 'Select a State';
 
 	let weatherDataResponse;
 	let featuresLength = 0;
@@ -67,7 +67,7 @@
 
 	async function getWeatherData() {
 		weatherData = [];
-		if (selectedState) {
+		if (selectedState != 'Select a State') {
 			let url = 'https://api.weather.gov/alerts/active/area/' + selectedState;
 			console.log(url);
 			const response = await fetch(url);
@@ -91,9 +91,11 @@
 	<header>WX</header>
 
 	<header>
-		<label for="state-select">Select a State</label>
+		<!-- <label for="state-select">Select a State</label> -->
 
-		<select id="state-select" bind:value={selectedState} on:change={getWeatherData}>
+		<select id="state-select" bind:value={selectedState} on:change={getWeatherData}
+			>\
+			<option disabled>Select a State</option>
 			{#each statesOfAmerica as state}
 				<option value={state.abbreviation}>
 					{state.name}
@@ -108,21 +110,21 @@
 		<footer>
 			{#if featuresLength > 0}
 				<header class="wx-title">
-					{weatherDatum.title}
+					{weatherDatum.title}:
 				</header>
 
 				{#each weatherData as weatherDatum}
 					<header>
-						{weatherDatum.areaDesc}
+						{weatherDatum.NWSheadline}
 					</header>
 					<footer>
-						{weatherDatum.NWSheadline}
+						{weatherDatum.areaDesc}
 					</footer>
 				{/each}
-			{:else if selectedState}
+			{:else if selectedState !== 'Select a State'}
 				No available alerts.
 			{:else}
-				Please select a state.
+				<header class="wx-title">Current watches, warnings, and advisories for:</header>
 			{/if}
 		</footer>
 	{:catch error}
@@ -134,7 +136,7 @@
 	.wx-title {
 		background-color: goldenrod;
 		border: none;
-		border-radius: .2em;
+		border-radius: 0.2em;
 		color: white;
 		font-weight: normal;
 	}
