@@ -136,7 +136,8 @@
 	.wx-title {
 		background-color: goldenrod;
 		border: none;
-		border-radius: 0.2em;
+		border-radius: 0.4em;
+		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
 		color: white;
 		font-weight: normal;
 	}

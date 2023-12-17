@@ -27,7 +27,11 @@
 		</div>
 	</nav>
 
-	<div style="padding-bottom: 0.4em;">%sveltekit.body%</div>
+	<div style="min-height: 100%; padding-bottom: 0.4em;">%sveltekit.body%</div>
+
+	<div class="page-footer">
+		<div class="footer-item">Thank you for visiting! Keep looking up.</div>
+	</div>
 </body>
 
 </html>
@@ -36,8 +40,8 @@
 	nav {
 		background: black;
 		border: none;
-		border-radius: .2em;
-		box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
+		border-radius: 0.4em;
+		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
 		color: white;
 		margin: 0.4em;
 	}
@@ -69,7 +73,7 @@
 		nav .show~.menu {
 			background: black;
 			bottom: unset;
-			box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
+			box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
 			color: white;
 			position: relative;
 			width: unset;
@@ -78,9 +82,8 @@
 
 	body {
 		margin: auto;
-		margin-top: 4em;
+		margin-top: 3.8em;
 		max-width: 720px;
-		/* padding: 1rem; */
 		padding: 0.4em;
 		padding-top: 0;
 	}
@@ -91,12 +94,13 @@
 	}
 
 	.card {
-		box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
+		border-radius: 0.4em;
+		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
 		margin-bottom: 0.4em;
 	}
 
 	button {
-		box-shadow: 0 0 .2em rgba(170, 170, 170, .2);
+		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
 
 	}
 
@@ -106,5 +110,28 @@
 
 	.last-item {
 		padding-bottom: 0;
+	}
+
+	.page-footer {
+		background-color: black;
+		border-radius: 0.4em 0.4em 0 0;
+		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
+		color: white;
+		/* margin-left: -0.8em;
+		margin-right: -0.8em; */
+		/* margin-top: 0.4em; */
+		padding: 0.6em;
+		position: relative;
+		/* right: 0; */
+	}
+
+	.footer-item {
+		text-align: right;
+	}
+
+	@media (max-width: 60em) {
+		.footer-item {
+			text-align: center;
+		}
 	}
 </style>
