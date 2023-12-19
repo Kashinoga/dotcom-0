@@ -8,9 +8,9 @@
 				<footer>A life counter app.</footer>
 			</article>
 		</a>
-		<a href="/project-s">
+		<a href="/starbloom">
 			<article class="card">
-				<header>Project S</header>
+				<header>Starbloom</header>
 				<footer>A worldbuilding project.</footer>
 			</article>
 		</a>
