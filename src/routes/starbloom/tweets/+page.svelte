@@ -3,35 +3,35 @@
 </script>
 
 <article class="card box-shadow-hover-none">
-	<header>Chapters</header>
+	<header>Tweets</header>
 
 	<footer>
 		{#each data.posts as post, i}
 			{@const isLast = i === data.posts.length - 1}
 			{#if isLast}
-				<article class="card card-last">
-					<header>
-						<a href={post.path}>
+				<a href={post.path}>
+					<article class="card card-last">
+						<header>
 							{post.meta.title}
-						</a>
-					</header>
+						</header>
 
-					<footer>
-						Published: {post.meta.date}
-					</footer>
-				</article>
+						<footer>
+							Published: {post.meta.date}
+						</footer>
+					</article>
+				</a>
 			{:else}
-				<article class="card">
-					<header>
-						<a href={post.path}>
+				<a href={post.path}>
+					<article class="card">
+						<header>
 							{post.meta.title}
-						</a>
-					</header>
+						</header>
 
-					<footer>
-						Published: {post.meta.date}
-					</footer>
-				</article>
+						<footer>
+							Published: {post.meta.date}
+						</footer>
+					</article>
+				</a>
 			{/if}
 		{/each}
 	</footer>

@@ -1,4 +1,4 @@
-import { fetchMarkdownPosts } from '$lib/utils/index-chapters';
+import { fetchMarkdownPosts } from '$lib/utils/index-tweets';
 import { json } from '@sveltejs/kit';
 
 export const GET = async () => {
