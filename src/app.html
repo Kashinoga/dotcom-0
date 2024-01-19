@@ -1,39 +1,37 @@
 <!doctype html>
 <html lang="en">
-
-<!-- <script>
+	<!-- <script>
 	import '@picnic/picnic.min.css';
 </script> -->
 
-<head>
-	<meta charset="utf-8" />
-	<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!-- <link href="https://cdn.jsdelivr.net/npm/picnic@7.1.0/picnic.min.css" rel="stylesheet"> -->
-	<link rel='stylesheet' href='%sveltekit.assets%/picnic.min.css'>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- <link href="https://cdn.jsdelivr.net/npm/picnic@7.1.0/picnic.min.css" rel="stylesheet"> -->
+		<link rel="stylesheet" href="%sveltekit.assets%/picnic.min.css" />
 
-	<title>Kashinoga</title>
-	%sveltekit.head%
-</head>
+		<title>Kashinoga</title>
+		%sveltekit.head%
+	</head>
 
-<body data-sveltekit-preload-data="hover">
-	<nav>
-		<div class="menu" style="float: left;">
-			<a href="/" class="pseudo button">Kashinoga</a>
+	<body data-sveltekit-preload-data="hover">
+		<nav>
+			<div class="menu" style="float: left">
+				<a href="/" class="pseudo button">Kashinoga</a>
+			</div>
+
+			<div class="menu">
+				<a href="/menu" class="pseudo button">Menu</a>
+			</div>
+		</nav>
+
+		<div style="min-height: 100%; padding-bottom: 0.4em">%sveltekit.body%</div>
+
+		<div class="page-footer">
+			<div class="footer-item">Thank you for visiting! Keep looking up. ✨</div>
 		</div>
-
-		<div class="menu">
-			<a href="/menu" class="pseudo button">Menu</a>
-		</div>
-	</nav>
-
-	<div style="min-height: 100%; padding-bottom: 0.4em;">%sveltekit.body%</div>
-
-	<div class="page-footer">
-		<div class="footer-item">Thank you for visiting! Keep looking up.</div>
-	</div>
-</body>
-
+	</body>
 </html>
 
 <style>
@@ -44,9 +42,12 @@
 		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
 		color: white;
 		margin: 0.4em;
+		margin-left: 0;
+		margin-right: 0;
+		position: unset;
 	}
 
-	nav .menu>* {
+	nav .menu > * {
 		margin-right: 0;
 	}
 
@@ -55,16 +56,16 @@
 		box-shadow: none;
 	}
 
-	@media (max-width: 60em) {
+	/* @media (max-width: 60em) {
 		nav {
 			margin-left: 0.8em;
 			margin-right: 0.8em;
 		}
-	}
+	} */
 
 	body {
 		margin: auto;
-		margin-top: 3.8em;
+		/* margin-top: 3.8em; */
 		max-width: 720px;
 		padding: 0.4em;
 		padding-top: 0;
@@ -83,7 +84,6 @@
 
 	button {
 		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
-
 	}
 
 	.card-last {
