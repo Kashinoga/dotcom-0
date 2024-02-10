@@ -2,12 +2,12 @@
 </script>
 
 <article class="card box-shadow-hover-none">
-	<header>LifeX</header>
+	<header>🛟 LifeX</header>
 
 	<footer>
 		<a href="/lifex/yugioh">
 			<article class="card card-last">
-				<header>LifeX for Yu-Gi-Oh!</header>
+				<header>🃏 LifeX for Yu-Gi-Oh!</header>
 				<footer>A life counter app for Yu-Gi-Oh!.</footer>
 			</article>
 		</a>

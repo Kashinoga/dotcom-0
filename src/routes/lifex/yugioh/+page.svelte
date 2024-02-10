@@ -46,7 +46,7 @@
 </script>
 
 <article class="card card-last">
-	<header>LifeX for Yu-Gi-Oh!</header>
+	<header>🃏 LifeX for Yu-Gi-Oh!</header>
 
 	<footer style="padding-bottom: 0;">
 		<div class="flex two">

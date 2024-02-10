@@ -87,12 +87,10 @@
 	}
 </script>
 
-<article class="card card-last">
-	<header>WX</header>
+<article class="card">
+	<header>🌦️ WX</header>
 
 	<header>
-		<!-- <label for="state-select">Select a State</label> -->
-
 		<select id="state-select" bind:value={selectedState} on:change={getWeatherData}
 			>\
 			<option disabled>Select a State</option>
@@ -109,10 +107,6 @@
 	{:then}
 		<footer>
 			{#if featuresLength > 0}
-				<header class="wx-title">
-					{weatherDatum.title}:
-				</header>
-
 				{#each weatherData as weatherDatum}
 					<header>
 						{weatherDatum.NWSheadline}
@@ -122,23 +116,12 @@
 					</footer>
 				{/each}
 			{:else if selectedState !== 'Select a State'}
-				No available alerts.
+				<p>No available alerts.</p>
 			{:else}
-				<header class="wx-title">Current watches, warnings, and advisories for:</header>
+				<p>Please select a State.</p>
 			{/if}
 		</footer>
 	{:catch error}
 		<p>Error: {error.message}</p>
 	{/await}
 </article>
-
-<style>
-	.wx-title {
-		background-color: goldenrod;
-		border: none;
-		border-radius: 0.4em;
-		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
-		color: white;
-		font-weight: normal;
-	}
-</style>

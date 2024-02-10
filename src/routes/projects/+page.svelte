@@ -1,16 +1,16 @@
 <article class="card box-shadow-hover-none">
-	<header>Projects</header>
+	<header>🚧 Projects</header>
 
 	<footer>
 		<a href="/lifex">
 			<article class="card">
-				<header>LifeX</header>
+				<header>🛟 LifeX</header>
 				<footer>A life counter app.</footer>
 			</article>
 		</a>
 		<a href="/wx">
 			<article class="card card-last">
-				<header>WX</header>
+				<header>🌦️ WX</header>
 				<footer>A simple weather app.</footer>
 			</article>
 		</a>

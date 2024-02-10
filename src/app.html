@@ -18,32 +18,39 @@
 	<body data-sveltekit-preload-data="hover">
 		<nav>
 			<div class="menu" style="float: left">
-				<a href="/" class="pseudo button">Kashinoga</a>
+				<a href="/" class="pseudo button">💖 Kashinoga</a>
 			</div>
 
 			<div class="menu">
-				<a href="/menu" class="pseudo button">Menu</a>
+				<a href="/menu" class="pseudo button">🍔 Menu</a>
 			</div>
 		</nav>
 
-		<div style="min-height: 100%; padding-bottom: 0.4em">%sveltekit.body%</div>
-
-		<div class="page-footer">
-			<div class="footer-item">Thank you for visiting! Keep looking up. ✨</div>
-		</div>
+		<div>%sveltekit.body%</div>
 	</body>
 </html>
 
 <style>
+	:root {
+		--global-spacing: 0.4em;
+	}
+
+	body {
+		display: grid;
+		gap: var(--global-spacing);
+		grid-template-rows: max-content;
+		margin: auto;
+		/* margin-top: 3.8em; */
+		max-width: 720px;
+		padding: var(--global-spacing);
+	}
+
 	nav {
 		background: black;
 		border: none;
-		border-radius: 0.4em;
-		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
+		border-radius: var(--global-spacing);
+		box-shadow: 0 0 var(--global-spacing) rgba(170, 170, 170, 0.2);
 		color: white;
-		margin: 0.4em;
-		margin-left: 0;
-		margin-right: 0;
 		position: unset;
 	}
 
@@ -54,6 +61,7 @@
 	nav .pseudo.button:hover {
 		background-color: goldenrod;
 		box-shadow: none;
+		color: black;
 	}
 
 	/* @media (max-width: 60em) {
@@ -63,27 +71,19 @@
 		}
 	} */
 
-	body {
-		margin: auto;
-		/* margin-top: 3.8em; */
-		max-width: 720px;
-		padding: 0.4em;
-		padding-top: 0;
-	}
-
 	.card header,
 	.card footer {
-		padding: 0.4em;
+		padding: var(--global-spacing);
 	}
 
 	.card {
-		border-radius: 0.4em;
-		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
-		margin-bottom: 0.4em;
+		border-radius: var(--global-spacing);
+		box-shadow: 0 0 var(--global-spacing) rgba(170, 170, 170, 0.2);
+		margin-bottom: var(--global-spacing);
 	}
 
 	button {
-		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
+		box-shadow: 0 0 var(--global-spacing) rgba(170, 170, 170, 0.2);
 	}
 
 	.card-last {
@@ -94,30 +94,7 @@
 		padding-bottom: 0;
 	}
 
-	.page-footer {
-		background-color: black;
-		border-radius: 0.4em 0.4em 0 0;
-		box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
-		color: white;
-		/* margin-left: -0.8em;
-		margin-right: -0.8em; */
-		/* margin-top: 0.4em; */
-		padding: 0.6em;
-		position: relative;
-		/* right: 0; */
-	}
-
-	.footer-item {
-		text-align: right;
-	}
-
-	@media (max-width: 60em) {
-		.footer-item {
-			text-align: center;
-		}
-	}
-
 	select {
-		border-radius: 0.4em;
+		border-radius: var(--global-spacing);
 	}
 </style>

@@ -2,19 +2,19 @@
 </script>
 
 <article class="card box-shadow-hover-none">
-	<header>Menu</header>
+	<header>🍔 Menu</header>
 
 	<footer>
 		<a href="/projects">
 			<article class="card">
-				<header>Projects</header>
+				<header>🚧 Projects</header>
 				<footer>My projects.</footer>
 			</article>
 		</a>
 
 		<a href="/wx">
 			<article class="card card-last">
-				<header>WX</header>
+				<header>🌦️ WX</header>
 				<footer>A simple weather app.</footer>
 			</article>
 		</a>
