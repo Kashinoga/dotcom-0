@@ -8,12 +8,6 @@
 				<footer>A life counter app.</footer>
 			</article>
 		</a>
-		<a href="/starbloom">
-			<article class="card">
-				<header>Starbloom</header>
-				<footer>A worldbuilding project.</footer>
-			</article>
-		</a>
 		<a href="/wx">
 			<article class="card card-last">
 				<header>WX</header>
