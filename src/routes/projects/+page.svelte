@@ -10,7 +10,7 @@
 		</a>
 		<a href="/vInTheWood">
 			<article class="card">
-				<header>🪓 vInTheWood</header>
+				<header>🏕️ vInTheWood</header>
 				<footer>A simple survival game.</footer>
 			</article>
 		</a>
