@@ -1,75 +1,108 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let fieldJournalDisplay: HTMLElement;
+	/* 
+		Field Journal
+	*/
+	let fieldJournalCard: HTMLElement;
 
 	let fieldJournal: any[] = [];
+
 	let fieldJournalEntry = {
 		dateTime: '',
 		actionDesc: '',
 		gainLoss: '',
 		test: ''
 	};
-	let initialFieldJournalEntry = {
+
+	let fieldJournalEntryInitial = {
 		dateTime: new Date().toLocaleString(),
-		actionDesc: 'Welcome to the woods.',
+		actionDesc: 'Welcome to the woods!',
 		gainLoss: '',
 		test: ''
 	};
-	fieldJournal = [...fieldJournal, initialFieldJournalEntry];
+	fieldJournal = [...fieldJournal, fieldJournalEntryInitial];
 
-	let currentDateTime = new Date();
-
-	let gatherBushesActions = [{ action: 'Cut' }, { action: 'Gather' }];
-
-	let woodCuttingButton;
+	/*
+		Buttons
+	*/
+	let buttonGatherTreesCut: HTMLElement;
 	let woodCuttingButtonDisabled: boolean;
 
+	/*
+		Time
+	*/
+	let dateTimeCurrent = new Date();
+
 	function getDateTime() {
-		currentDateTime = new Date();
-		return currentDateTime.toLocaleString();
+		dateTimeCurrent = new Date();
+		return dateTimeCurrent.toLocaleString();
 	}
 
-	function scrollDownFieldJournal() {
-		// let textarea = document.getElementById('fieldJournal');
-		// if (textarea) {
-		// 	textarea.scrollTop = textarea.scrollHeight;
-		// }
-		fieldJournalDisplay.scrollTop = fieldJournalDisplay.scrollHeight;
+	/*
+		Random number generator
+	*/
+	function getActionGainLossValue(min: number, max: number) {
+		const minCeiled = Math.ceil(min);
+		const maxFloored = Math.floor(max);
+		return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
 	}
 
-	onMount(() => {
-		scrollDownFieldJournal();
-	});
+	/* 
+		Actions, Gathering
+	*/
+	let gatherTreesActions = [{ action: 'Cut', resource: 'Tree', reward: 'Wood' }];
 
-	function gatherAction(action: string, resource: string) {
+	let gatherBushesActions = [
+		{ action: 'Cut', resource: 'Bush', reward: 'Fiber' },
+		{ action: 'Gather', resource: 'Bush', reward: 'Berry' }
+	];
+
+	const gatherResourcesActions = [
+		{ Tree: [...gatherTreesActions] },
+		{ Bush: [...gatherBushesActions] }
+	];
+
+	function gatherAction(action: string, resource: string, reward: string) {
 		console.log(action);
 		if (resource == 'Tree') {
-			woodCuttingButton = document.getElementById('woodCuttingButton');
 			woodCuttingButtonDisabled = true;
 
 			setTimeout(function () {
 				woodCuttingButtonDisabled = false;
 
-				let woodCuttingValues = [1, 2, 3, 4, 5, 6, 7, 8];
-				let woodCuttingValue = Math.ceil(Math.random() * woodCuttingValues.length);
-
 				fieldJournalEntry = {
 					dateTime: getDateTime(),
-					actionDesc: 'You chop at a tree.',
-					gainLoss: 'You gained ' + woodCuttingValue + ' wood.',
+					actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
+					gainLoss: 'You gained ' + getActionGainLossValue(1, 8) + ' [' + reward + '].',
 					test: 'positive'
 				};
 
 				fieldJournal = [...fieldJournal, fieldJournalEntry];
 			}, 0);
-		}
+		} else if (resource == 'Bush') {
+			fieldJournalEntry = {
+				dateTime: getDateTime(),
+				actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
+				gainLoss: 'You gained ' + getActionGainLossValue(1, 4) + ' [' + reward + '].',
+				test: 'positive'
+			};
 
-		scrollDownFieldJournal();
+			fieldJournal = [...fieldJournal, fieldJournalEntry];
+		}
 	}
 </script>
 
 <div class="hero"><h1>🏕️ vInTheWood</h1></div>
+
+<article class="card">
+	<header>🚧 Testing Area</header>
+	<footer>
+		{#each gatherResourcesActions as gatherResourcesAction}
+			Help me.
+		{/each}
+	</footer>
+</article>
 
 <article class="card">
 	<header>📓 Event Journal</header>
@@ -79,7 +112,7 @@
 <article class="card">
 	<header>✏️ Field Journal</header>
 	<div class="field-journal">
-		<footer bind:this={fieldJournalDisplay}>
+		<footer bind:this={fieldJournalCard}>
 			{#each fieldJournal as fieldJournalEntry}
 				<p>
 					<b>[{fieldJournalEntry.dateTime}]</b>
@@ -98,26 +131,51 @@
 <article class="card">
 	<header>🪓 Gather</header>
 	<footer>
-		<header>Trees</header>
-		<button
-			id="woodCuttingButton"
-			on:click={() => gatherAction('Cut', 'Tree')}
-			disabled={woodCuttingButtonDisabled}>Cut</button
-		>
-
-		<header>Bushes</header>
 		<div class="flex one two-600">
-			{#each gatherBushesActions as gatherBushesAction}
-				<div>
-					<div>
-						<span
-							><button class="full" on:click={() => gatherAction(gatherBushesAction.action, 'Bush')}
-								>{gatherBushesAction.action}</button
-							></span
-						>
-					</div>
+			<div>
+				<header>🌳 Trees</header>
+				<div class="flex one two-600">
+					{#each gatherTreesActions as gatherTreesAction}
+						<div>
+							<div>
+								<span
+									><button
+										class="full"
+										on:click={() =>
+											gatherAction(
+												gatherTreesAction.action,
+												gatherTreesAction.resource,
+												gatherTreesAction.reward
+											)}>{gatherTreesAction.action}</button
+									></span
+								>
+							</div>
+						</div>
+					{/each}
 				</div>
-			{/each}
+			</div>
+			<div>
+				<header>🌿 Bushes</header>
+				<div class="flex one two-600">
+					{#each gatherBushesActions as gatherBushesAction}
+						<div>
+							<div>
+								<span
+									><button
+										class="full"
+										on:click={() =>
+											gatherAction(
+												gatherBushesAction.action,
+												gatherBushesAction.resource,
+												gatherBushesAction.reward
+											)}>{gatherBushesAction.action}</button
+									></span
+								>
+							</div>
+						</div>
+					{/each}
+				</div>
+			</div>
 		</div>
 	</footer>
 </article>
