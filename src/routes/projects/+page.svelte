@@ -8,6 +8,12 @@
 				<footer>A life counter app.</footer>
 			</article>
 		</a>
+		<a href="/vInTheWood">
+			<article class="card">
+				<header>🪓 vInTheWood</header>
+				<footer>A simple survival game.</footer>
+			</article>
+		</a>
 		<a href="/wx">
 			<article class="card card-last">
 				<header>🌦️ WX</header>
