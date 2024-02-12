@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { inventory } from './stores.js';
+
 	let gameName = '🏕️ vInTheWood';
 
 	/* 
@@ -201,6 +203,19 @@
 </article>
 
 <article class="card">
+	<header>🎒 Inventory</header>
+	<footer class="playerInventory">
+		{#each $inventory as item}
+			{#each item.tools as tool}
+				<div class="tool">
+					{tool}
+				</div>
+			{/each}
+		{/each}
+	</footer>
+</article>
+
+<article class="card">
 	<header>🪓 Gather</header>
 	<footer>
 		<div class="flex one two-600 grow">
@@ -288,5 +303,16 @@
 		flex-direction: column-reverse;
 		height: 240px;
 		overflow: auto;
+	}
+
+	.playerInventory {
+		display: flex;
+		gap: var(--global-spacing);
+	}
+
+	.playerInventory .tool {
+		border: var(--global-border);
+		border-radius: var(--global-border-radius);
+		padding: var(--global-spacing);
 	}
 </style>
