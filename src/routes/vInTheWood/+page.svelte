@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	/* 
 		Field Journal
 	*/
@@ -51,58 +49,71 @@
 	/* 
 		Actions, Gathering
 	*/
-	let gatherTreesActions = [{ action: 'Cut', resource: 'Tree', reward: 'Wood' }];
+	let gatherTreesActions = [{ action: 'Cut', resource: 'Tree', reward: 'Wood', min: 1, max: 8 }];
 
 	let gatherBushesActions = [
-		{ action: 'Cut', resource: 'Bush', reward: 'Fiber' },
-		{ action: 'Gather', resource: 'Bush', reward: 'Berry' }
+		{ action: 'Cut', resource: 'Bush', reward: 'Fiber', min: 1, max: 4 },
+		{ action: 'Gather', resource: 'Bush', reward: 'Berry', min: 1, max: 6 }
 	];
 
-	const gatherResourcesActions = [
-		{ Tree: [...gatherTreesActions] },
-		{ Bush: [...gatherBushesActions] }
+	/* 
+		Resources
+	*/
+	let resources = [
+		{ name: 'Trees', singular: 'Tree', actions: gatherTreesActions, emoji: '🌳' },
+		{ name: 'Bushes', singular: 'Bush', actions: gatherBushesActions, emoji: '🌿' }
 	];
 
-	function gatherAction(action: string, resource: string, reward: string) {
-		console.log(action);
-		if (resource == 'Tree') {
-			woodCuttingButtonDisabled = true;
+	let gatherActions = [
+		{ resource: 'Tree', gatherTreesActions },
+		{ resource: 'Bush', gatherBushesActions }
+	];
 
-			setTimeout(function () {
-				woodCuttingButtonDisabled = false;
+	function gatherAction(
+		action: string,
+		resource: string,
+		reward: string,
+		min: number,
+		max: number
+	) {
+		fieldJournalEntry = {
+			dateTime: getDateTime(),
+			actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
+			gainLoss: 'You gained ' + getActionGainLossValue(min, max) + ' [' + reward + '].',
+			test: 'positive'
+		};
 
-				fieldJournalEntry = {
-					dateTime: getDateTime(),
-					actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
-					gainLoss: 'You gained ' + getActionGainLossValue(1, 8) + ' [' + reward + '].',
-					test: 'positive'
-				};
+		fieldJournal = [...fieldJournal, fieldJournalEntry];
 
-				fieldJournal = [...fieldJournal, fieldJournalEntry];
-			}, 0);
-		} else if (resource == 'Bush') {
-			fieldJournalEntry = {
-				dateTime: getDateTime(),
-				actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
-				gainLoss: 'You gained ' + getActionGainLossValue(1, 4) + ' [' + reward + '].',
-				test: 'positive'
-			};
+		// if (resource == 'Tree') {
+		// 	woodCuttingButtonDisabled = true;
 
-			fieldJournal = [...fieldJournal, fieldJournalEntry];
-		}
+		// 	setTimeout(function () {
+		// 		woodCuttingButtonDisabled = false;
+
+		// 		fieldJournalEntry = {
+		// 			dateTime: getDateTime(),
+		// 			actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
+		// 			gainLoss: 'You gained ' + getActionGainLossValue(1, 8) + ' [' + reward + '].',
+		// 			test: 'positive'
+		// 		};
+
+		// 		fieldJournal = [...fieldJournal, fieldJournalEntry];
+		// 	}, 0);
+		// } else if (resource == 'Bush') {
+		// 	fieldJournalEntry = {
+		// 		dateTime: getDateTime(),
+		// 		actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
+		// 		gainLoss: 'You gained ' + getActionGainLossValue(1, 4) + ' [' + reward + '].',
+		// 		test: 'positive'
+		// 	};
+
+		// 	fieldJournal = [...fieldJournal, fieldJournalEntry];
+		// }
 	}
 </script>
 
 <div class="hero"><h1>🏕️ vInTheWood</h1></div>
-
-<article class="card">
-	<header>🚧 Testing Area</header>
-	<footer>
-		{#each gatherResourcesActions as gatherResourcesAction}
-			Help me.
-		{/each}
-	</footer>
-</article>
 
 <article class="card">
 	<header>📓 Event Journal</header>
@@ -131,51 +142,33 @@
 <article class="card">
 	<header>🪓 Gather</header>
 	<footer>
-		<div class="flex one two-600">
-			<div>
-				<header>🌳 Trees</header>
-				<div class="flex one two-600">
-					{#each gatherTreesActions as gatherTreesAction}
-						<div>
+		<div class="flex one two-600 grow">
+			{#each resources as resource}
+				<div>
+					<header>{resource.emoji} {resource.name}</header>
+					<div class="flex one two-600 grow">
+						{#each resource.actions as action}
 							<div>
-								<span
-									><button
-										class="full"
-										on:click={() =>
-											gatherAction(
-												gatherTreesAction.action,
-												gatherTreesAction.resource,
-												gatherTreesAction.reward
-											)}>{gatherTreesAction.action}</button
-									></span
-								>
+								<div>
+									<span
+										><button
+											class="full"
+											on:click={() =>
+												gatherAction(
+													action.action,
+													action.resource,
+													action.reward,
+													action.min,
+													action.max
+												)}>{action.action}</button
+										></span
+									>
+								</div>
 							</div>
-						</div>
-					{/each}
+						{/each}
+					</div>
 				</div>
-			</div>
-			<div>
-				<header>🌿 Bushes</header>
-				<div class="flex one two-600">
-					{#each gatherBushesActions as gatherBushesAction}
-						<div>
-							<div>
-								<span
-									><button
-										class="full"
-										on:click={() =>
-											gatherAction(
-												gatherBushesAction.action,
-												gatherBushesAction.resource,
-												gatherBushesAction.reward
-											)}>{gatherBushesAction.action}</button
-									></span
-								>
-							</div>
-						</div>
-					{/each}
-				</div>
-			</div>
+			{/each}
 		</div>
 	</footer>
 </article>
