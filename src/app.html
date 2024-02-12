@@ -1,27 +1,21 @@
 <!doctype html>
 <html lang="en">
-	<!-- <script>
-	import '@picnic/picnic.min.css';
-</script> -->
-
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- <link href="https://cdn.jsdelivr.net/npm/picnic@7.1.0/picnic.min.css" rel="stylesheet"> -->
 		<link rel="stylesheet" href="%sveltekit.assets%/picnic.min.css" />
-		<!-- <link rel="stylesheet" href="/fonts/Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf" /> -->
 		<title>Kashinoga</title>
 		%sveltekit.head%
 	</head>
 
 	<body data-sveltekit-preload-data="hover">
 		<nav>
-			<div class="menu" style="float: left">
+			<div class="menu menu-hero">
 				<a href="/" class="pseudo button">💖 Kashinoga</a>
 			</div>
 
-			<div class="menu">
+			<div class="menu menu-button">
 				<a href="/menu" class="pseudo button">🍔 Menu</a>
 			</div>
 		</nav>
@@ -38,60 +32,81 @@
 	}
 
 	:root {
+		--global-border: 1px solid rgba(0, 0, 0, 0.1);
+		--global-border-radius: 0.4em;
+		--global-box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+		--global-box-shadow-inset: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+			rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 		--global-spacing: 0.4em;
 	}
 
 	body {
 		display: grid;
-		font-family: 'Noto Sans';
+		font-family: 'Noto Sans', sans-serif;
 		font-size: 1em;
 		gap: var(--global-spacing);
 		grid-template-rows: max-content;
 		margin: auto;
-		/* margin-top: 3.8em; */
 		max-width: 720px;
 		padding: var(--global-spacing);
 	}
 
 	nav {
-		background: black;
-		border: none;
-		border-radius: var(--global-spacing);
-		box-shadow: 0 0 var(--global-spacing) rgba(170, 170, 170, 0.2);
-		color: white;
+		align-items: baseline;
+		background: white;
+		border: var(--global-border);
+		border-radius: var(--global-border-radius);
+		box-shadow: var(--global-box-shadow);
+		display: flex;
+		color: black;
+		padding: var(--global-spacing);
 		position: unset;
 	}
 
-	nav .menu > * {
-		margin-right: 0;
+	nav .pseudo.button {
+		box-shadow: none;
+		font-weight: normal;
+		margin: 0;
+	}
+
+	nav .menu-hero {
+		flex-grow: 1;
 	}
 
 	nav .pseudo.button:hover {
-		background-color: goldenrod;
-		box-shadow: none;
+		box-shadow: var(--global-box-shadow-inset);
 		color: black;
 	}
 
-	/* @media (max-width: 60em) {
-		nav {
-			margin-left: 0.8em;
-			margin-right: 0.8em;
-		}
-	} */
+	.card {
+		border: var(--global-border);
+		border-radius: var(--global-border-radius);
+		box-shadow: var(--global-box-shadow);
+		margin-bottom: var(--global-spacing);
+	}
 
 	.card header,
 	.card footer {
 		padding: var(--global-spacing);
 	}
 
-	.card {
-		border-radius: var(--global-spacing);
-		box-shadow: 0 0 var(--global-spacing) rgba(170, 170, 170, 0.2);
-		margin-bottom: var(--global-spacing);
+	.card header {
+		border-bottom: var(--global-border);
 	}
 
-	button {
-		box-shadow: 0 0 var(--global-spacing) rgba(170, 170, 170, 0.2);
+	button,
+	.pseudo.button {
+		background-color: white;
+		border: var(--global-border);
+		border-radius: var(--global-border-radius);
+		/* box-shadow: var(--global-box-shadow); */
+		color: black;
+	}
+
+	button:hover,
+	.pseudo.button:hover {
+		border: var(--global-border);
+		box-shadow: var(--global-box-shadow-inset);
 	}
 
 	.card-last {
@@ -103,6 +118,6 @@
 	}
 
 	select {
-		border-radius: var(--global-spacing);
+		border-radius: var(--global-border-radius);
 	}
 </style>

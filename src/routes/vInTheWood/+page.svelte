@@ -21,12 +21,12 @@
 		rewardName: ''
 	};
 
-	let fieldJournalEntryWelcome = {
-		dateTime: new Date().toLocaleString(),
-		colorCoded: 'false',
-		entryLine: 'Welcome to [' + gameName + '].'
-	};
-	fieldJournal = [...fieldJournal, fieldJournalEntryWelcome];
+	// let fieldJournalEntryWelcome = {
+	// 	dateTime: new Date().toLocaleString(),
+	// 	colorCoded: 'false',
+	// 	entryLine: 'Welcome to [' + gameName + '].'
+	// };
+	// fieldJournal = [...fieldJournal, fieldJournalEntryWelcome];
 
 	let fieldJournalEntryInitial = {
 		dateTime: new Date().toLocaleString(),
@@ -36,6 +36,19 @@
 	fieldJournal = [...fieldJournal, fieldJournalEntryInitial];
 
 	let newsEntries = [{ date: '10 FEB 24', entry: 'Hi, there. 👋' }];
+
+	let eventJournal: any[] = [];
+
+	let eventJournalEntry = {
+		date: '',
+		entry: ''
+	};
+
+	let eventJournalEntryInitial = {
+		date: new Date().toLocaleString(),
+		entry: 'Welcome to [' + gameName + '].'
+	};
+	eventJournal = [...eventJournal, eventJournalEntryInitial];
 
 	/*
 		Buttons
@@ -119,16 +132,24 @@
 
 <article class="card">
 	<header>📰 News</header>
-	<footer>
-		{#each newsEntries as newsEntry}
-			<p><b>[{newsEntry.date}]</b> {newsEntry.entry}</p>
-		{/each}
-	</footer>
+	<div class="news">
+		<footer>
+			{#each newsEntries as newsEntry}
+				<p><b>[{newsEntry.date}]</b> {newsEntry.entry}</p>
+			{/each}
+		</footer>
+	</div>
 </article>
 
 <article class="card">
 	<header>📓 Event Journal</header>
-	<footer><p><b>[{getDateTime()}]</b> Welcome to the woods!</p></footer>
+	<div class="event-journal">
+		<footer>
+			{#each eventJournal as eventJournalEntry}
+				<p><b>[{eventJournalEntry.date}]</b> {eventJournalEntry.entry}</p>
+			{/each}
+		</footer>
+	</div>
 </article>
 
 <article class="card">
@@ -136,12 +157,12 @@
 	<header class="header-buttons">
 		<div class="header-buttons header-title">✏️ Field Journal</div>
 		<div>
-			<button class="pseudo" on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}
+			<button class="pseudo button" on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}
 				>⏫</button
 			>
 		</div>
 		<div>
-			<button class="pseudo" on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}
+			<button class="pseudo button" on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}
 				>⏬</button
 			>
 		</div>
@@ -240,9 +261,20 @@
 	}
 
 	.header-buttons button {
-		box-shadow: none;
 		font-weight: normal;
 		margin: 0;
+	}
+
+	.news {
+		height: 90px;
+		overflow: auto;
+	}
+
+	.event-journal {
+		display: flex;
+		flex-direction: column-reverse;
+		height: 120px;
+		overflow: auto;
 	}
 
 	.field-journal {
