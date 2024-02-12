@@ -1,4 +1,6 @@
 <script lang="ts">
+	let gameName = '🏕️ vInTheWood';
+
 	/* 
 		Field Journal
 	*/
@@ -8,18 +10,32 @@
 
 	let fieldJournalEntry = {
 		dateTime: '',
+		colorCoded: '',
+		entryLine: '',
+		entityName: '',
+		actionName: '',
 		actionDesc: '',
+		resourceName: '',
 		gainLoss: '',
-		test: ''
+		gainLossAmount: '',
+		rewardName: ''
 	};
+
+	let fieldJournalEntryWelcome = {
+		dateTime: new Date().toLocaleString(),
+		colorCoded: 'false',
+		entryLine: 'Welcome to [' + gameName + '].'
+	};
+	fieldJournal = [...fieldJournal, fieldJournalEntryWelcome];
 
 	let fieldJournalEntryInitial = {
 		dateTime: new Date().toLocaleString(),
-		actionDesc: 'Welcome to the woods!',
-		gainLoss: '',
-		test: ''
+		colorCoded: 'false',
+		entryLine: 'You arrive in the woods. You are filled with hope.'
 	};
 	fieldJournal = [...fieldJournal, fieldJournalEntryInitial];
+
+	let newsEntries = [{ date: '10 FEB 24', entry: 'Hi, there. 👋' }];
 
 	/*
 		Buttons
@@ -38,7 +54,7 @@
 	}
 
 	/*
-		Random number generator
+		Random Number Generator
 	*/
 	function getActionGainLossValue(min: number, max: number) {
 		const minCeiled = Math.ceil(min);
@@ -64,11 +80,6 @@
 		{ name: 'Bushes', singular: 'Bush', actions: gatherBushesActions, emoji: '🌿' }
 	];
 
-	let gatherActions = [
-		{ resource: 'Tree', gatherTreesActions },
-		{ resource: 'Bush', gatherBushesActions }
-	];
-
 	function gatherAction(
 		action: string,
 		resource: string,
@@ -77,43 +88,43 @@
 		max: number
 	) {
 		fieldJournalEntry = {
+			colorCoded: 'true',
+			entryLine: '',
+			entityName: 'You',
 			dateTime: getDateTime(),
-			actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
-			gainLoss: 'You gained ' + getActionGainLossValue(min, max) + ' [' + reward + '].',
-			test: 'positive'
+			actionName: action,
+			actionDesc: 'at the',
+			resourceName: resource,
+			gainLoss: 'gain',
+			gainLossAmount: 'gain ' + getActionGainLossValue(min, max).toString(),
+			rewardName: reward
 		};
 
 		fieldJournal = [...fieldJournal, fieldJournalEntry];
+	}
 
-		// if (resource == 'Tree') {
-		// 	woodCuttingButtonDisabled = true;
-
-		// 	setTimeout(function () {
-		// 		woodCuttingButtonDisabled = false;
-
-		// 		fieldJournalEntry = {
-		// 			dateTime: getDateTime(),
-		// 			actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
-		// 			gainLoss: 'You gained ' + getActionGainLossValue(1, 8) + ' [' + reward + '].',
-		// 			test: 'positive'
-		// 		};
-
-		// 		fieldJournal = [...fieldJournal, fieldJournalEntry];
-		// 	}, 0);
-		// } else if (resource == 'Bush') {
-		// 	fieldJournalEntry = {
-		// 		dateTime: getDateTime(),
-		// 		actionDesc: 'You [' + action + '] at a ' + '[' + resource + '].',
-		// 		gainLoss: 'You gained ' + getActionGainLossValue(1, 4) + ' [' + reward + '].',
-		// 		test: 'positive'
-		// 	};
-
-		// 	fieldJournal = [...fieldJournal, fieldJournalEntry];
-		// }
+	/*
+	 * Scroll an element fully up or down
+	 */
+	function scrollFullyDirection(element: HTMLElement, direction: string) {
+		if (direction == 'up') {
+			fieldJournalCard.scrollIntoView();
+		} else {
+			fieldJournalCard.scrollIntoView(false);
+		}
 	}
 </script>
 
 <div class="hero"><h1>🏕️ vInTheWood</h1></div>
+
+<article class="card">
+	<header>📰 News</header>
+	<footer>
+		{#each newsEntries as newsEntry}
+			<p><b>[{newsEntry.date}]</b> {newsEntry.entry}</p>
+		{/each}
+	</footer>
+</article>
 
 <article class="card">
 	<header>📓 Event Journal</header>
@@ -121,17 +132,40 @@
 </article>
 
 <article class="card">
-	<header>✏️ Field Journal</header>
+	<center></center>
+	<header class="header-buttons">
+		<div class="header-buttons header-title">✏️ Field Journal</div>
+		<div>
+			<button class="pseudo" on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}
+				>⏫</button
+			>
+		</div>
+		<div>
+			<button class="pseudo" on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}
+				>⏬</button
+			>
+		</div>
+	</header>
 	<div class="field-journal">
 		<footer bind:this={fieldJournalCard}>
 			{#each fieldJournal as fieldJournalEntry}
 				<p>
 					<b>[{fieldJournalEntry.dateTime}]</b>
-					{fieldJournalEntry.actionDesc}
-					{#if fieldJournalEntry.test == 'positive'}
-						<span style="color: green;">{fieldJournalEntry.gainLoss}</span>
+					{#if fieldJournalEntry.colorCoded == 'false'}
+						{fieldJournalEntry.entryLine}
 					{:else}
-						<span style="color: red;">{fieldJournalEntry.gainLoss}</span>
+						{fieldJournalEntry.entityName}
+						<span style="color: blue;">[{fieldJournalEntry.actionName}]</span>
+						{fieldJournalEntry.actionDesc}
+						<span style="color: goldenrod">[{fieldJournalEntry.resourceName}]</span>.
+						{#if fieldJournalEntry.gainLoss == 'gain'}
+							{fieldJournalEntry.entityName}
+							{fieldJournalEntry.gainLossAmount}
+							<span style="color: green;">[{fieldJournalEntry.rewardName}]</span>.
+						{:else}
+							{fieldJournalEntry.entityName}
+							<span style="color: red;">[{fieldJournalEntry.gainLossAmount}]</span>.
+						{/if}
 					{/if}
 				</p>
 			{/each}
@@ -173,6 +207,11 @@
 	</footer>
 </article>
 
+<article class="card">
+	<header>⚒️ Build</header>
+	<footer></footer>
+</article>
+
 <style>
 	.hero {
 		text-align: center;
@@ -184,6 +223,26 @@
 
 	.flex button {
 		margin-bottom: 0;
+	}
+
+	/*
+	* Headers with Buttons
+	*/
+
+	.header-buttons {
+		align-items: center;
+		display: flex;
+		gap: var(--global-spacing);
+	}
+
+	.header-buttons .header-title {
+		flex-grow: 1;
+	}
+
+	.header-buttons button {
+		box-shadow: none;
+		font-weight: normal;
+		margin: 0;
 	}
 
 	.field-journal {
