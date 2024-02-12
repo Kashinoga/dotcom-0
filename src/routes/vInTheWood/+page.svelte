@@ -121,9 +121,15 @@
 	 */
 	function scrollFullyDirection(element: HTMLElement, direction: string) {
 		if (direction == 'up') {
-			fieldJournalCard.scrollIntoView();
+			fieldJournalCard.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
 		} else {
-			fieldJournalCard.scrollIntoView(false);
+			fieldJournalCard.scrollIntoView({
+				behavior: 'smooth',
+				block: 'end'
+			});
 		}
 	}
 </script>
