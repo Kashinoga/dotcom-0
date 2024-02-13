@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { playerInventory } from './playerInventoryStore.js';
 	import { baseCampInventory } from './baseCampInventoryStore.js';
-	import PlayerInventory from './PlayerInventory.svelte';
 
-	let gameName = '🏕️ vInTheWood';
+	let gameIcon = '🏕️';
+	let gameName = 'vInTheWood';
 
 	/* 
 		Field Journal
@@ -50,7 +50,7 @@
 
 	let eventJournalEntryInitial = {
 		date: new Date().toLocaleString(),
-		entry: 'Welcome to [' + gameName + '].'
+		entry: 'Welcome to [' + gameIcon + ' ' + gameName + '].'
 	};
 	eventJournal = [...eventJournal, eventJournalEntryInitial];
 
@@ -137,6 +137,11 @@
 		}
 	}
 </script>
+
+<svelte:head>
+	<link rel="icon" href={gameName} />
+	<title>{gameName}</title>
+</svelte:head>
 
 <div class="hero"><h1>🏕️ vInTheWood</h1></div>
 
@@ -275,6 +280,10 @@
 	<header>⚒️ Build</header>
 	<footer><button disabled>Coming soon</button></footer>
 </article>
+
+<head>
+	<title>he</title>
+</head>
 
 <style>
 	.hero {
