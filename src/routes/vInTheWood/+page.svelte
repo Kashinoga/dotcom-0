@@ -181,12 +181,12 @@
 	<header class="header-buttons">
 		<div class="header-buttons header-title">✏️ Field Journal</div>
 		<div>
-			<button class="pseudo button" on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}
+			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}
 				>⏫</button
 			>
 		</div>
 		<div>
-			<button class="pseudo button" on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}
+			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}
 				>⏬</button
 			>
 		</div>

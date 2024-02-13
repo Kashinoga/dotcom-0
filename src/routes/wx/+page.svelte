@@ -69,7 +69,6 @@
 		weatherData = [];
 		if (selectedState != 'Select a State') {
 			let url = 'https://api.weather.gov/alerts/active/area/' + selectedState;
-			console.log(url);
 			const response = await fetch(url);
 			weatherDataResponse = await response.json();
 			featuresLength = weatherDataResponse.features.length;
@@ -82,7 +81,6 @@
 				};
 				weatherData = [...weatherData, weatherDatum];
 			}
-			console.log(weatherDataResponse);
 		}
 	}
 </script>

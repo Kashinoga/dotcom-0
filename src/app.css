@@ -1,0 +1,130 @@
+:root {
+	--global-background-color: rgba(24, 24, 24, 1);
+	--global-body-color: rgba(12, 12, 12, 1);
+	--global-border: 1px solid rgba(128, 128, 128, 0.1);
+	--global-border-radius: 0.4em;
+	--global-box-shadow: rgba(24, 24, 24, 0.06) 0px 2px 40px 0px;
+	--global-box-shadow-inset: rgba(255, 255, 255, 0.06) 0px 2px 40px 0px inset;
+	--global-spacing: 0.4em;
+	--global-text-color: rgba(255, 255, 255, 1);
+}
+[data-theme='light'] {
+	--global-background-color: rgba(255, 255, 255, 1);
+	--global-body-color: rgba(255, 255, 255, 1);
+	--global-border: 1px solid rgba(0, 0, 0, 0.1);
+	--global-box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 40px 0px;
+	--global-box-shadow-inset: rgba(0, 0, 0, 0.06) 0px 2px 40px 0px inset;
+	--global-text-color: rgba(0, 0, 0, 1);
+}
+
+@font-face {
+	font-family: 'Noto Sans';
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+	src: url('/fonts/Noto_Sans/NotoSans-VariableFont_wdth\,wght.ttf') format('truetype-variations');
+}
+
+@font-face {
+	font-family: 'Noto Color Emoji';
+	font-weight: 400;
+	font-style: normal;
+	src: url('/fonts/Noto_Color_Emoji/NotoColorEmoji-Regular.ttf') format('truetype-variations');
+}
+
+body {
+	background-color: var(--global-body-color);
+	color: var(--global-text-color);
+	font-family: 'Noto Sans', 'Noto Color Emoji', sans-serif;
+	font-size: 1em;
+	margin: auto;
+	max-width: 720px;
+	padding: var(--global-spacing);
+}
+
+.container {
+	display: grid;
+	gap: var(--global-spacing);
+	grid-template-rows: max-content;
+}
+
+nav {
+	align-items: flex-start;
+	background-color: var(--global-background-color);
+	border: var(--global-border);
+	border-radius: var(--global-border-radius);
+	box-shadow: var(--global-box-shadow);
+	display: flex;
+	color: var(--global-text-color);
+	padding: var(--global-spacing);
+	position: unset;
+}
+
+nav .menu > * {
+	margin-right: 0;
+}
+
+nav .menu-hero {
+	flex-grow: 1;
+}
+
+.card {
+	background-color: var(--global-background-color);
+	border: var(--global-border);
+	border-radius: var(--global-border-radius);
+	box-shadow: var(--global-box-shadow);
+	color: var(--global-text-color);
+	margin-bottom: var(--global-spacing);
+}
+
+.card header,
+.card footer {
+	padding: var(--global-spacing);
+}
+
+.card header {
+	border-bottom: var(--global-border);
+}
+
+button {
+	background: none;
+	background-color: var(--global-background-color);
+	border: var(--global-border);
+	border-radius: var(--global-border-radius);
+	box-shadow: var(--global-box-shadow);
+	color: var(--global-text-color);
+	transition: all 1s;
+}
+
+button:hover {
+	border: var(--global-border);
+	box-shadow: var(--global-box-shadow-inset);
+}
+
+button:active,
+button:focus {
+	border: var(--global-border);
+	box-shadow: var(--global-box-shadow-inset);
+}
+
+button[disabled] {
+	background: unset;
+	box-shadow: var(--global-box-shadow-inset);
+}
+
+button a {
+	color: var(--global-text-color);
+}
+
+.card-last {
+	margin-bottom: 0;
+}
+
+.last-item {
+	padding-bottom: 0;
+}
+
+select {
+	border-radius: var(--global-border-radius);
+}

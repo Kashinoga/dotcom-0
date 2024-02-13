@@ -1,7 +1,7 @@
-<article class="card">
-	<header>💖 Kashinoga</header>
+<div class="hero"><h1>Hi, there. ✨</h1></div>
 
-	<footer>
-		<p>I'm working on it.</p>
-	</footer>
-</article>
+<style>
+	.hero {
+		text-align: center;
+	}
+</style>
