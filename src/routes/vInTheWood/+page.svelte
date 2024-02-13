@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { inventory } from './stores.js';
+	import { playerInventory } from './playerInventoryStore.js';
+	import { baseCampInventory } from './baseCampInventoryStore.js';
 
 	let gameName = '🏕️ vInTheWood';
 
@@ -205,10 +206,23 @@
 <article class="card">
 	<header>🎒 Inventory</header>
 	<footer class="playerInventory">
-		{#each $inventory as item}
+		{#each $playerInventory as item}
 			{#each item.tools as tool}
-				<div class="tool">
+				<div class="item">
 					{tool}
+				</div>
+			{/each}
+		{/each}
+	</footer>
+</article>
+
+<article class="card">
+	<header>⛺ Basecamp</header>
+	<footer class="baseCampInventory">
+		{#each $baseCampInventory as items}
+			{#each items.items as item}
+				<div class="item">
+					{item}
 				</div>
 			{/each}
 		{/each}
@@ -305,12 +319,14 @@
 		overflow: auto;
 	}
 
-	.playerInventory {
+	.playerInventory,
+	.baseCampInventory {
 		display: flex;
 		gap: var(--global-spacing);
 	}
 
-	.playerInventory .tool {
+	.playerInventory .item,
+	.baseCampInventory .item {
 		border: var(--global-border);
 		border-radius: var(--global-border-radius);
 		padding: var(--global-spacing);

@@ -27,8 +27,18 @@
 <style>
 	@font-face {
 		font-family: 'Noto Sans';
-		src: url('/fonts/Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf') format('truetype-variations');
-		font-weight: 1 999;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+		font-variation-settings: 'wdth' 100;
+		src: url('/fonts/Noto_Sans/NotoSans-VariableFont_wdth\,wght.ttf') format('truetype-variations');
+	}
+
+	@font-face {
+		font-family: 'Noto Color Emoji';
+		font-weight: 400;
+		font-style: normal;
+		src: url('/fonts/Noto_Color_Emoji/NotoColorEmoji-Regular.ttf') format('truetype-variations');
 	}
 
 	:root {
@@ -41,7 +51,7 @@
 
 	body {
 		display: grid;
-		font-family: 'Noto Sans', sans-serif;
+		font-family: 'Noto Sans', 'Noto Color Emoji', sans-serif;
 		font-size: 1em;
 		gap: var(--global-spacing);
 		grid-template-rows: max-content;

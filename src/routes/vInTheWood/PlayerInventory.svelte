@@ -1,7 +1,3 @@
-<script lang="ts">
-	import { playerInventory } from './stores';
+<script>
+	import { playerInventory } from './playerInventoryStore.js';
 </script>
-
-<div>
-	
-</div>
