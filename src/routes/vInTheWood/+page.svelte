@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { playerInventory } from './playerInventoryStore.js';
 	import { baseCampInventory } from './baseCampInventoryStore.js';
+	import PlayerInventory from './PlayerInventory.svelte';
 
 	let gameName = '🏕️ vInTheWood';
 
@@ -140,6 +141,15 @@
 <div class="hero"><h1>🏕️ vInTheWood</h1></div>
 
 <article class="card">
+	<header>⚠ Notice</header>
+	<footer>
+		<p>
+			This game is under development. Things will break, and you will lose your progress. Have fun!
+		</p>
+	</footer>
+</article>
+
+<article class="card">
 	<header>📰 News</header>
 	<div class="news">
 		<footer>
@@ -207,11 +217,9 @@
 	<header>🎒 Inventory</header>
 	<footer class="playerInventory">
 		{#each $playerInventory as item}
-			{#each item.tools as tool}
-				<div class="item">
-					{tool}
-				</div>
-			{/each}
+			<div class="item">
+				{item.name} ({item.quantity})
+			</div>
 		{/each}
 	</footer>
 </article>
@@ -265,7 +273,7 @@
 
 <article class="card">
 	<header>⚒️ Build</header>
-	<footer></footer>
+	<footer><button disabled>Coming soon</button></footer>
 </article>
 
 <style>
