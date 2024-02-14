@@ -18,7 +18,7 @@
 	--color-cerulean: #227c9d; */
 
 	--color-yellow: #f7ca19;
-	--color-blue: #00bfff;
+	--color-blue: #1e90ff;
 	--color-green: #00ff7f;
 }
 [data-theme='light'] {
@@ -30,9 +30,9 @@
 	--global-text-color: rgba(0, 0, 0, 1);
 	--global-text-color-inverted: rgba(255, 255, 255, 1);
 
-	--color-yellow: #483c0c;
+	--color-yellow: #8d6708;
 	--color-blue: #0000e0;
-	--color-green: #114c2a;
+	--color-green: #008000;
 }
 
 :root * {
@@ -126,7 +126,7 @@ button:hover {
 
 button:active,
 button:focus {
-	background-color: var(--color-gold);
+	background-color: var(--color-yellow);
 	border: var(--global-border);
 	box-shadow: var(--global-box-shadow);
 	color: var(--global-text-color-inverted);
