@@ -181,14 +181,10 @@
 	<header class="header-buttons">
 		<div class="header-buttons header-title">✏️ Field Journal</div>
 		<div>
-			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}
-				>⏫</button
-			>
+			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}>⏫</button>
 		</div>
 		<div>
-			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}
-				>⏬</button
-			>
+			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}>⏬</button>
 		</div>
 	</header>
 	<div class="field-journal">
@@ -200,16 +196,16 @@
 						{fieldJournalEntry.entryLine}
 					{:else}
 						{fieldJournalEntry.entityName}
-						<span style="color: blue;">[{fieldJournalEntry.actionName}]</span>
+						<span class="color-blue">[{fieldJournalEntry.actionName}]</span>
 						{fieldJournalEntry.actionDesc}
-						<span style="color: goldenrod">[{fieldJournalEntry.resourceName}]</span>.
+						<span class="color-yellow">[{fieldJournalEntry.resourceName}]</span>.
 						{#if fieldJournalEntry.gainLoss == 'gain'}
 							{fieldJournalEntry.entityName}
 							{fieldJournalEntry.gainLossAmount}
-							<span style="color: green;">[{fieldJournalEntry.rewardName}]</span>.
+							<span class="color-green">[{fieldJournalEntry.rewardName}]</span>.
 						{:else}
 							{fieldJournalEntry.entityName}
-							<span style="color: red;">[{fieldJournalEntry.gainLossAmount}]</span>.
+							<span class="color-red">[{fieldJournalEntry.gainLossAmount}]</span>.
 						{/if}
 					{/if}
 				</p>
@@ -286,6 +282,19 @@
 </head>
 
 <style>
+	.color-red {
+		color: var(--color-red);
+	}
+	.color-yellow {
+		color: var(--color-yellow);
+	}
+	.color-green {
+		color: var(--color-green);
+	}
+	.color-blue {
+		color: var(--color-blue);
+	}
+
 	.hero {
 		text-align: center;
 	}

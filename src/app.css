@@ -1,20 +1,42 @@
 :root {
-	--global-background-color: rgba(24, 24, 24, 1);
-	--global-body-color: rgba(12, 12, 12, 1);
+	--global-background-color: #181818;
+	--global-body-color: #0c0c0c;
 	--global-border: 1px solid rgba(128, 128, 128, 0.1);
 	--global-border-radius: 0.4em;
 	--global-box-shadow: rgba(24, 24, 24, 0.06) 0px 2px 40px 0px;
 	--global-box-shadow-inset: rgba(255, 255, 255, 0.06) 0px 2px 40px 0px inset;
 	--global-spacing: 0.4em;
 	--global-text-color: rgba(255, 255, 255, 1);
+	--global-text-color-inverted: rgba(0, 0, 0, 1);
+
+	/* --color-gold: #ffb900;
+	--color-silver: #cebebe;
+	--color-night: #0f0f0f;
+	--color-jet: #2d2e2e;
+	--color-persian-green: #1b998b;
+	--color-fire-engine-red: #c1292e;
+	--color-cerulean: #227c9d; */
+
+	--color-yellow: #f7ca19;
+	--color-blue: #00bfff;
+	--color-green: #00ff7f;
 }
 [data-theme='light'] {
-	--global-background-color: rgba(255, 255, 255, 1);
+	--global-background-color: #ffffff;
 	--global-body-color: rgba(255, 255, 255, 1);
 	--global-border: 1px solid rgba(0, 0, 0, 0.1);
 	--global-box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 40px 0px;
 	--global-box-shadow-inset: rgba(0, 0, 0, 0.06) 0px 2px 40px 0px inset;
 	--global-text-color: rgba(0, 0, 0, 1);
+	--global-text-color-inverted: rgba(255, 255, 255, 1);
+
+	--color-yellow: #483c0c;
+	--color-blue: #0000e0;
+	--color-green: #114c2a;
+}
+
+:root * {
+	transition: all 0.2s;
 }
 
 @font-face {
@@ -104,8 +126,10 @@ button:hover {
 
 button:active,
 button:focus {
+	background-color: var(--color-gold);
 	border: var(--global-border);
-	box-shadow: var(--global-box-shadow-inset);
+	box-shadow: var(--global-box-shadow);
+	color: var(--global-text-color-inverted);
 }
 
 button[disabled] {
