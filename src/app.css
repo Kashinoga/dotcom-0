@@ -3,8 +3,13 @@
 	--global-body-color: #0c0c0c;
 	--global-border: 1px solid rgba(128, 128, 128, 0.1);
 	--global-border-radius: 0.4em;
+	--global-button-background-color: #1f1f1f;
+	--global-button-background-color-active: #1c1c1c;
+
 	--global-box-shadow: rgba(24, 24, 24, 0.06) 0px 2px 40px 0px;
 	--global-box-shadow-inset: rgba(255, 255, 255, 0.06) 0px 2px 40px 0px inset;
+	--global-box-shadow-yellow: rgba(247, 202, 25, 0.8) 0px 2px 40px 0px,
+		rgba(0, 0, 0, 0.06) 0px 2px 40px 0px inset;
 	--global-spacing: 0.4em;
 	--global-text-color: rgba(255, 255, 255, 1);
 	--global-text-color-inverted: rgba(0, 0, 0, 1);
@@ -25,8 +30,14 @@
 	--global-background-color: #ffffff;
 	--global-body-color: rgba(255, 255, 255, 1);
 	--global-border: 1px solid rgba(0, 0, 0, 0.1);
+	--global-button-background-color: #fcfcfc;
+	--global-button-background-color-active: #f3f3f3;
+
 	--global-box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 40px 0px;
 	--global-box-shadow-inset: rgba(0, 0, 0, 0.06) 0px 2px 40px 0px inset;
+	--global-box-shadow-yellow: rgba(247, 202, 25, 0.8) 0px 2px 40px 0px,
+		rgba(0, 0, 0, 0.06) 0px 2px 40px 0px inset;
+
 	--global-text-color: rgba(0, 0, 0, 1);
 	--global-text-color-inverted: rgba(255, 255, 255, 1);
 
@@ -110,8 +121,7 @@ nav .menu-hero {
 }
 
 button {
-	background: none;
-	background-color: var(--global-background-color);
+	background-color: var(--global-button-background-color);
 	border: var(--global-border);
 	border-radius: var(--global-border-radius);
 	box-shadow: var(--global-box-shadow);
@@ -124,12 +134,23 @@ button:hover {
 	box-shadow: var(--global-box-shadow-inset);
 }
 
-button:active,
-button:focus {
-	background-color: var(--color-yellow);
+button:active {
+	background-color: var(--global-button-background-color-active);
 	border: var(--global-border);
-	box-shadow: var(--global-box-shadow);
-	color: var(--global-text-color-inverted);
+	box-shadow: var(--global-box-shadow-yellow);
+	/* color: var(--global-text-color-inverted); */
+}
+
+button:focus {
+	border: var(--global-border);
+	box-shadow: var(--global-box-shadow-yellow);
+	outline: none;
+}
+
+button:focus-visible,
+button:focus-within {
+	box-shadow: var(--global-box-shadow-yellow);
+	outline: none;
 }
 
 button[disabled] {

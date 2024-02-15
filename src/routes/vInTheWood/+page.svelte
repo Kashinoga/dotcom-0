@@ -180,12 +180,12 @@
 	<center></center>
 	<header class="header-buttons">
 		<div class="header-buttons header-title">✏️ Field Journal</div>
-		<div>
+		<!-- <div>
 			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}>⏫</button>
 		</div>
 		<div>
 			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}>⏬</button>
-		</div>
+		</div> -->
 	</header>
 	<div class="field-journal">
 		<footer bind:this={fieldJournalCard}>
@@ -274,7 +274,7 @@
 
 <article class="card">
 	<header>⚒️ Build</header>
-	<footer><button disabled>Coming soon</button></footer>
+	<footer><button disabled style="opacity: 0.5;">Coming soon...</button></footer>
 </article>
 
 <head>
@@ -353,6 +353,7 @@
 
 	.playerInventory .item,
 	.baseCampInventory .item {
+		background-color: var(--global-button-background-color);
 		border: var(--global-border);
 		border-radius: var(--global-border-radius);
 		padding: var(--global-spacing);
