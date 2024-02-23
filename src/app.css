@@ -46,7 +46,7 @@
 	--color-green: #008000;
 }
 
-:root * {
+:root > * {
 	transition: all 0.2s;
 }
 

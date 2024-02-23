@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { playerInventory } from './playerInventoryStore.js';
 	import { baseCampInventory } from './baseCampInventoryStore.js';
+	import { baseCampBuildInventory } from './baseCampInventoryStore.js';
 
 	let gameIcon = '🏕️';
 	let gameName = 'vInTheWood';
@@ -178,14 +179,8 @@
 
 <article class="card">
 	<center></center>
-	<header class="header-buttons">
-		<div class="header-buttons header-title">✏️ Field Journal</div>
-		<!-- <div>
-			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'up')}>⏫</button>
-		</div>
-		<div>
-			<button on:click={() => scrollFullyDirection(fieldJournalCard, 'down')}>⏬</button>
-		</div> -->
+	<header>
+		<div class="header-title">✏️ Field Journal</div>
 	</header>
 	<div class="field-journal">
 		<footer bind:this={fieldJournalCard}>
@@ -228,13 +223,20 @@
 <article class="card">
 	<header>⛺ Basecamp</header>
 	<footer class="baseCampInventory">
-		{#each $baseCampInventory as items}
-			{#each items.items as item}
-				<div class="item">
-					{item}
-				</div>
+		<div class="flex one">
+			<header>Build</header>
+			{#each $baseCampBuildInventory as items}
+				{items.name}
 			{/each}
-		{/each}
+
+			<header>Inventory</header>
+
+			{#each $baseCampInventory as items}
+				{#each items.items as item}
+					{item}
+				{/each}
+			{/each}
+		</div>
 	</footer>
 </article>
 
@@ -319,11 +321,6 @@
 
 	.header-buttons .header-title {
 		flex-grow: 1;
-	}
-
-	.header-buttons button {
-		font-weight: normal;
-		margin: 0;
 	}
 
 	.news {
