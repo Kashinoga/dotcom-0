@@ -107,7 +107,7 @@
 			{#if featuresLength > 0}
 				{#each weatherData as weatherDatum, index}
 					{#if index === featuresLength - 1}
-						<article class="card card-inner card-last">
+						<article class="card card-last">
 							<header>
 								📍 {weatherDatum.areaDesc}
 							</header>
@@ -116,7 +116,7 @@
 							</footer>
 						</article>
 					{:else}
-						<article class="card card-inner">
+						<article class="card">
 							<header>
 								📍 {weatherDatum.areaDesc}
 							</header>

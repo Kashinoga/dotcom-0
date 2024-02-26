@@ -1,4 +1,4 @@
-<article class="card box-shadow-hover-inherit">
+<article class="card">
 	<header>🚧 Projects</header>
 
 	<footer>
@@ -22,17 +22,3 @@
 		</a>
 	</footer>
 </article>
-
-<style>
-	a {
-		color: unset;
-	}
-
-	.card:hover {
-		box-shadow: none;
-	}
-
-	.box-shadow-hover-inherit:hover {
-		box-shadow: var(--global-box-shadow);
-	}
-</style>
