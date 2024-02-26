@@ -1,5 +1,6 @@
 :root {
 	--global-background-color: #181818;
+	--global-background-color-shade1: #202020;
 	--global-body-color: #0c0c0c;
 	--global-border: 1px solid rgba(128, 128, 128, 0.1);
 	--global-border-radius: 0.4em;
@@ -27,8 +28,9 @@
 	--color-green: #00ff7f;
 }
 [data-theme='light'] {
-	--global-background-color: #ffffff;
-	--global-body-color: rgba(255, 255, 255, 1);
+	--global-background-color: #f8f8f8;
+	--global-background-color-shade1: #f6f6f6;
+	--global-body-color: #ffffff;
 	--global-border: 1px solid rgba(0, 0, 0, 0.1);
 	--global-button-background-color: #fcfcfc;
 	--global-button-background-color-active: #f3f3f3;
@@ -162,6 +164,10 @@ button a {
 	color: var(--global-text-color);
 }
 
+.card-inner header {
+	background-color: var(--global-background-color-shade1);
+}
+
 .card-last {
 	margin-bottom: 0;
 }
@@ -171,5 +177,11 @@ button a {
 }
 
 select {
+	appearance: button;
+	background-color: var(--global-background-color);
+	background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 12 12' enable-background:'new -1 -1 12 12;' xml:space='preserve'> <path fill='%23FFFFFF' d='M9.293,0l-3.147,3.147L.5,5.707l3.646,3.646L9,12l3.147-3.147L12.707,5.707Z'>");
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-size: contain;
 	border-radius: var(--global-border-radius);
 }

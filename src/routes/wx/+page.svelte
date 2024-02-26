@@ -105,13 +105,26 @@
 	{:then}
 		<footer>
 			{#if featuresLength > 0}
-				{#each weatherData as weatherDatum}
-					<header>
-						{weatherDatum.NWSheadline}
-					</header>
-					<footer>
-						{weatherDatum.areaDesc}
-					</footer>
+				{#each weatherData as weatherDatum, index}
+					{#if index === featuresLength - 1}
+						<article class="card card-inner card-last">
+							<header>
+								📍 {weatherDatum.areaDesc}
+							</header>
+							<footer>
+								{weatherDatum.NWSheadline}
+							</footer>
+						</article>
+					{:else}
+						<article class="card card-inner">
+							<header>
+								📍 {weatherDatum.areaDesc}
+							</header>
+							<footer>
+								{weatherDatum.NWSheadline}
+							</footer>
+						</article>
+					{/if}
 				{/each}
 			{:else if selectedState !== 'Select a State'}
 				<p>No available alerts.</p>
