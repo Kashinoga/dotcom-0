@@ -45,106 +45,80 @@
 	}
 </script>
 
-<article class="card card-last">
-	<header>🃏 LifeX for Yu-Gi-Oh!</header>
+<div class="hero"><h1>🃏 LifeX for Yu-Gi-Oh!</h1></div>
 
-	<footer style="padding-bottom: 0;">
-		<div class="flex two">
-			{#each players as player}
-				<div style="padding-bottom: 0;">
-					<span
-						><header>Player {player}</header>
-						<footer style="padding-bottom: 0;">
-							<div class="flex one two-600">
-								<div>
-									<span
-										><button disabled class="full" style="background-color: goldenrod;">
-											{#if player === 1}
-												{playerOneLife}
-											{:else}
-												{playerTwoLife}
-											{/if}
-										</button></span
-									>
-								</div>
-								<div>
-									<span
-										><button
-											class="full"
-											style="background-color: red;"
-											on:click={() => resetPlayerValue(player)}>Reset</button
-										></span
-									>
-								</div>
-
-								{#each lifePointValues as lifePointValue}
-									<div>
-										<div>
-											<span
-												><button
-													class="full"
-													on:click={() => adjustPlayerValue(player, lifePointValue)}
-													>{lifePointValue}</button
-												></span
-											>
-										</div>
-									</div>
-								{/each}
-							</div>
-						</footer></span
-					>
-				</div>
-			{/each}
-		</div>
-	</footer>
-
+<article class="card">
 	<footer>
-		<header>Starting Life Points</header>
-		<footer>
-			<div class="flex one two-600">
-				<div>
-					<span
-						><button class="full" on:click={() => setDefaultPlayerValues('Master Duel')}
-							>Master Duel</button
-						></span
-					>
-				</div>
-				<div>
-					<span
-						><button class="full" on:click={() => setDefaultPlayerValues('Speed Duel')}
-							>Speed Duel</button
-						></span
-					>
-				</div>
-			</div>
-		</footer>
+		<div class="card-container">
+			{#each players as player}
+				<article class="card">
+					<header>Player {player}</header>
+					<footer>
+						<div class="button-container">
+							<button disabled>
+								{#if player === 1}
+									{playerOneLife}
+								{:else}
+									{playerTwoLife}
+								{/if}
+							</button>
 
-		<header>Flip a Coin</header>
-		<footer>
-			<div class="flex one two-600">
-				<div>
-					<span><button class="full" on:click={() => flipACoin()}>Flip</button></span>
-				</div>
-				<div>
-					<span
-						><button disabled class="full" style="background-color: goldenrod;">{coinResult}</button
-						></span
-					>
-				</div>
-			</div>
-		</footer>
+							<button on:click={() => resetPlayerValue(player)}>Reset</button>
+
+							{#each lifePointValues as lifePointValue}
+								<button on:click={() => adjustPlayerValue(player, lifePointValue)}
+									>{lifePointValue}</button
+								>
+							{/each}
+						</div>
+					</footer>
+				</article>
+			{/each}
+
+			<article class="card">
+				<header>Starting Life Points</header>
+				<footer>
+					<div class="button-container">
+						<button on:click={() => setDefaultPlayerValues('Master Duel')}>Master Duel</button>
+						<button on:click={() => setDefaultPlayerValues('Speed Duel')}>Speed Duel</button>
+					</div>
+				</footer>
+			</article>
+
+			<article class="card">
+				<header>Flip a Coin</header>
+				<footer>
+					<div class="button-container">
+						<button disabled>{coinResult}</button>
+						<button on:click={() => flipACoin()}>Flip</button>
+					</div>
+				</footer>
+			</article>
+		</div>
 	</footer>
 </article>
 
 <style>
-	button {
-		margin: 0;
-	}
-
 	@media screen and (max-width: 600px) {
 		button {
-			margin: 0;
 			touch-action: manipulation;
 		}
+	}
+
+	.card-container {
+		display: grid;
+		gap: var(--global-spacing);
+		grid-template-columns: 1fr;
+	}
+
+	@media (min-width: 600px) {
+		.card-container {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.button-container {
+		display: grid;
+		gap: var(--global-spacing);
 	}
 </style>

@@ -83,6 +83,14 @@
 			}
 		}
 	}
+
+	const copyToClipboard = async (text: string) => {
+		try {
+			await navigator.clipboard.writeText(text);
+		} catch (err) {
+			console.error('An error occurred while copying: ', err);
+		}
+	};
 </script>
 
 <article class="card">
@@ -104,35 +112,65 @@
 		<p>Loading...</p>
 	{:then}
 		<footer>
-			{#if featuresLength > 0}
-				{#each weatherData as weatherDatum, index}
-					{#if index === featuresLength - 1}
-						<article class="card card-last">
-							<header>
-								📍 {weatherDatum.areaDesc}
-							</header>
-							<footer>
-								{weatherDatum.NWSheadline}
-							</footer>
-						</article>
-					{:else}
-						<article class="card">
-							<header>
-								📍 {weatherDatum.areaDesc}
-							</header>
-							<footer>
-								{weatherDatum.NWSheadline}
-							</footer>
-						</article>
-					{/if}
-				{/each}
-			{:else if selectedState !== 'Select a State'}
-				<p>No available alerts.</p>
-			{:else}
-				<p>Please select a State.</p>
-			{/if}
+			<div class="card-container">
+				{#if featuresLength > 0}
+					{#each weatherData as weatherDatum, index}
+						{#if index === featuresLength - 1}
+							<article class="card card-last">
+								<header class="weather-data-header">
+									<div class="areaDesc">
+										📍 {weatherDatum.areaDesc}
+									</div>
+									<button
+										class="copyIcon"
+										on:click={() =>
+											copyToClipboard(weatherDatum.areaDesc + '\n\n' + weatherDatum.NWSheadline)}
+										>📑</button
+									>
+								</header>
+								<footer>
+									{weatherDatum.NWSheadline}
+								</footer>
+							</article>
+						{:else}
+							<article class="card">
+								<header class="weather-data-header">
+									<div class="areaDesc">
+										📍 {weatherDatum.areaDesc}
+									</div>
+									<button
+										class="copyIcon"
+										on:click={() =>
+											copyToClipboard(weatherDatum.areaDesc + '\n\n' + weatherDatum.NWSheadline)}
+										>📑</button
+									>
+								</header>
+								<footer>
+									{weatherDatum.NWSheadline}
+								</footer>
+							</article>
+						{/if}
+					{/each}
+				{:else if selectedState !== 'Select a State'}
+					<p>No available alerts.</p>
+				{:else}
+					<p>Please select a State.</p>
+				{/if}
+			</div>
 		</footer>
 	{:catch error}
 		<p>Error: {error.message}</p>
 	{/await}
 </article>
+
+<style>
+	.card .card header {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.card .card header .areaDesc {
+		align-self: center;
+		flex-grow: 1;
+	}
+</style>

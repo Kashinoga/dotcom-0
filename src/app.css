@@ -10,7 +10,7 @@
 	--global-box-shadow: rgba(24, 24, 24, 0.06) 0px 0px 40px 0px;
 	--global-box-shadow-inset: rgba(255, 255, 255, 0.06) 0px 0px 40px 0px inset;
 	--global-box-shadow-yellow: rgba(247, 202, 25, 0.2) 0px 0px 100px 0px,
-		rgba(0, 0, 0, 0.06) 0px 0px 40px 0px inset;
+		rgba(0, 0, 0, 0.06) 0px 0px 100px 0px inset, rgba(247, 202, 25, 0.02) 0px 0px 100px 0px inset;
 	--global-spacing: 0.4em;
 	--global-text-color: rgba(255, 255, 255, 1);
 	--global-text-color-inverted: rgba(0, 0, 0, 1);
@@ -38,7 +38,7 @@
 	--global-box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 40px 0px;
 	--global-box-shadow-inset: rgba(0, 0, 0, 0.06) 0px 0px 40px 0px inset;
 	--global-box-shadow-yellow: rgba(247, 202, 25, 0.4) 0px 0px 100px 0px,
-		rgba(0, 0, 0, 0.06) 0px 0px 40px 0px inset;
+		rgba(0, 0, 0, 0.06) 0px 0px 100px 0px inset, rgba(247, 202, 25, 0.02) 0px 0px 100px 0px inset;
 
 	--global-text-color: rgba(0, 0, 0, 1);
 	--global-text-color-inverted: rgba(255, 255, 255, 1);
@@ -48,8 +48,9 @@
 	--color-green: #008000;
 }
 
+:root *,
 :root > * {
-	transition: all 0.2s;
+	transition: all 0.2s !important;
 }
 
 @font-face {
@@ -66,6 +67,11 @@
 	font-weight: 400;
 	font-style: normal;
 	src: url('/fonts/Noto_Color_Emoji/NotoColorEmoji-Regular.ttf') format('truetype-variations');
+}
+
+.flex {
+	margin: 0;
+	width: auto;
 }
 
 body {
@@ -104,13 +110,23 @@ nav .menu-hero {
 	flex-grow: 1;
 }
 
+.hero {
+	text-align: center;
+}
+
+.card-container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--global-spacing);
+}
+
 .card {
 	background-color: var(--global-background-color);
 	border: var(--global-border);
 	border-radius: var(--global-border-radius);
 	box-shadow: var(--global-box-shadow);
 	color: var(--global-text-color);
-	margin-bottom: var(--global-spacing);
+	margin-bottom: 0;
 }
 
 .card header,
@@ -126,18 +142,28 @@ nav .menu-hero {
 	box-shadow: var(--global-box-shadow-yellow);
 }
 
+.card .card header {
+	background-color: var(--global-background-color-shade1);
+}
+
+.card-last {
+	margin-bottom: 0;
+}
+
 button {
+	align-self: flex-start;
 	background-color: var(--global-button-background-color);
 	border: var(--global-border);
 	border-radius: var(--global-border-radius);
 	box-shadow: var(--global-box-shadow);
 	color: var(--global-text-color);
-	transition: all 1s;
+	margin: 0;
+	padding: var(--global-spacing);
 }
 
 button:hover {
 	border: var(--global-border);
-	box-shadow: var(--global-box-shadow-inset);
+	box-shadow: var(--global-box-shadow-yellow);
 }
 
 button:active {
@@ -168,14 +194,6 @@ button a {
 	color: var(--global-text-color);
 }
 
-.card .card header {
-	background-color: var(--global-background-color-shade1);
-}
-
-.card-last {
-	margin-bottom: 0;
-}
-
 .last-item {
 	padding-bottom: 0;
 }
@@ -187,5 +205,6 @@ select {
 	background-position: center right;
 	background-repeat: no-repeat;
 	background-size: contain;
+	border: var(--global-border);
 	border-radius: var(--global-border-radius);
 }

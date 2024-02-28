@@ -297,10 +297,6 @@
 		color: var(--color-blue);
 	}
 
-	.hero {
-		text-align: center;
-	}
-
 	.flex > * {
 		padding-bottom: 0;
 	}
