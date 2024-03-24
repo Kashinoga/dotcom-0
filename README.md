@@ -1,3 +1,7 @@
+# 💾 Archived
+
+This repository has been superceded. Please find the latest version [here](https://github.com/Kashinoga?tab=repositories).
+
 # 💖 Kashinoga
 
 Welcome to the home of the Kashinoga website.
